@@ -39,6 +39,17 @@ npm install bitcoinjs-lib
 var bitcoin = require('bitcoinjs-lib')
 ```
 
+### React Native
+- Install the following dependencies:
+```
+npm i -S bitcoinjs-lib random-js buffer@5
+npm i -D rn-nodeify
+```
+- Add the following to your script in package.json: "postinstall": 
+```
+"postinstall": "./node_modules/.bin/rn-nodeify --install buffer,stream,assert,events --hack"
+```
+
 ### Browser
 If you're familiar with how to use browserify, ignore this and proceed normally.
 These steps are advisory only,  and may not be suitable for your application.
@@ -77,7 +88,6 @@ uglifyjs ... --mangle reserved=['BigInteger','ECPair','Point']
 **NOTE**: This library tracks Node LTS features,  if you need strict ES5,  use [`--transform babelify`](https://github.com/babel/babelify) in conjunction with your `browserify` step (using an [`es2015`](http://babeljs.io/docs/plugins/preset-es2015/) preset).
 
 **NOTE**: If you expect this library to run on an iOS 10 device, ensure that you are using [buffer@5.0.5](https://github.com/feross/buffer/pull/155) or greater.
-
 
 ### Typescript or VSCode users
 Type declarations for Typescript are available for version `^3.0.0` of the library.
