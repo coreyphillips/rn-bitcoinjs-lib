@@ -5,7 +5,7 @@
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-The pure JavaScript Bitcoin library for node.js and browsers.
+This is a React Native compatible version of [bitcoinjs-lib,](https://github.com/bitcoinjs/bitcoinjs-lib)a pure JavaScript Bitcoin library for node.js and browsers.
 Estimated to be in use by over 15 million wallet users and is the backbone for almost all Bitcoin web wallets in production today.
 
 
@@ -22,98 +22,38 @@ Estimated to be in use by over 15 million wallet users and is the backbone for a
 - Experiment-friendly: Bitcoin Mainnet and Testnet support.
 - Altcoin-ready: Capable of working with bitcoin-derived cryptocurrencies (such as Dogecoin).
 
-
-## Should I use this in production?
-If you are thinking of using the master branch of this library in production, **stop**.
-Master is not stable; it is our development branch, and [only tagged releases may be classified as stable](https://github.com/bitcoinjs/bitcoinjs-lib/tags).
-
-
 ## Installation
 ``` bash
-npm install bitcoinjs-lib
+npm i -S https://github.com/coreyphillips/react-native-bitcoinjs-lib
 ```
 
 ## Setup
-### Node.js
-``` javascript
-var bitcoin = require('bitcoinjs-lib')
-```
 
 ### React Native
-- Install the following dependencies:
-```
+Install the following dependencies:
+``` bash
 npm i -S bitcoinjs-lib random-js buffer@5
 npm i -D rn-nodeify
 ```
-- Add the following to your script in package.json: "postinstall": 
-```
+Add the following to your script in package.json: 
+
+``` javascript
 "postinstall": "./node_modules/.bin/rn-nodeify --install buffer,stream,assert,events --hack"
 ```
 
+**Usage**
+``` javascript
+import "./shim";
+const bitcoin = require("bitcoinjs-lib");
+const keyPair = bitcoin.ECPair.makeRandom();
+const address = keyPair.getAddress();
+```
+
+### Node.js
+Use [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib)
+
 ### Browser
-If you're familiar with how to use browserify, ignore this and proceed normally.
-These steps are advisory only,  and may not be suitable for your application.
-
-[Browserify](https://github.com/substack/node-browserify) is assumed to be installed for these steps.
-
-For your project, create an `index.js` file
-``` javascript
-let bitcoin = require('bitcoinjs-lib')
-
-// your code here
-function myFunction () {
-	return bitcoin.ECPair.makeRandom().toWIF()
-}
-
-module.exports = {
-	myFunction
-}
-```
-
-Now, to compile for the browser:
-``` bash
-browserify index.js --standalone foo > app.js
-```
-
-You can now put `<script src="app.js" />` in your web page,  using `foo.myFunction` to create a new Bitcoin private key.
-
-**NOTE**: If you uglify the javascript, you must exclude the following variable names from being mangled: `BigInteger`, `ECPair`, `Point`.
-This is because of the function-name-duck-typing used in [typeforce](https://github.com/dcousens/typeforce).
-
-Example:
-``` bash
-uglifyjs ... --mangle reserved=['BigInteger','ECPair','Point']
-```
-
-**NOTE**: This library tracks Node LTS features,  if you need strict ES5,  use [`--transform babelify`](https://github.com/babel/babelify) in conjunction with your `browserify` step (using an [`es2015`](http://babeljs.io/docs/plugins/preset-es2015/) preset).
-
-**NOTE**: If you expect this library to run on an iOS 10 device, ensure that you are using [buffer@5.0.5](https://github.com/feross/buffer/pull/155) or greater.
-
-### Typescript or VSCode users
-Type declarations for Typescript are available for version `^3.0.0` of the library.
-``` bash
-npm install @types/bitcoinjs-lib
-```
-
-You can now use `bitcoinjs-lib` as a typescript compliant library.
-``` javascript
-import { HDNode, Transaction } from 'bitcoinjs-lib'
-```
-
-For VSCode (and other editors), users are advised to install the type declarations, as Intellisense uses that information to help you code (autocompletion, static analysis).
-
-Report any typescript related bugs at [@dlebrecht DefinitelyTyped fork](https://github.com/dlebrecht/DefinitelyTyped),  submit PRs to [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)
-
-
-### Flow
-Definitions for [Flow typechecker](https://flowtype.org/) are available in flow-typed repository.
-
-[You can either download them directly](https://github.com/flowtype/flow-typed/blob/master/definitions/npm/bitcoinjs-lib_v2.x.x/flow_v0.17.x-/bitcoinjs-lib_v2.x.x.js) from the repo, or with the flow-typed CLI
-
-    # npm install -g flow-typed
-    $ flow-typed install -f 0.27 bitcoinjs-lib@2.2.0 # 0.27 for flow version, 2.2.0 for bitcoinjs-lib version
-
-The definitions are complete and up to date with version 2.2.0. The definitions are maintained by [@runn1ng](https://github.com/runn1ng).
+Use [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib)
 
 ## Examples
 The below examples are implemented as integration tests, they should be very easy to understand.
