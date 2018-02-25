@@ -32,7 +32,7 @@ npm i -S https://github.com/coreyphillips/react-native-bitcoinjs-lib
 ### React Native
 Install the following dependencies:
 ``` bash
-npm i -S bitcoinjs-lib random-js buffer-reverse react-native-randombytes buffer@5
+npm i -S bitcoinjs-lib buffer-reverse react-native-randombytes buffer@5
 npm i -D rn-nodeify
 react-native link react-native-randombytes
 ```
