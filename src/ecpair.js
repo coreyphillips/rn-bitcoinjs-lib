@@ -1,7 +1,7 @@
 var baddress = require('./address')
 var bcrypto = require('./crypto')
 var ecdsa = require('./ecdsa')
-var randomBytes = require('randombytes')
+var randomBytes = require('react-native-randombytes')
 var Random = require('random-js')
 var typeforce = require('typeforce')
 var types = require('./types')
@@ -90,17 +90,9 @@ ECPair.makeRandom = function (options) {
 
   var rng = options.rng || randomBytes
 
-  function myRng(n) {
-    var buf = new Buffer(n)
-    var random = new Random(Random.engines.mt19937().autoSeed())
-    var num = random.int32();
-    buf.fill(num)
-    return buf
-  }
-
   var d
   do {
-    var buffer = myRng(32)
+    var buffer = rng(32)
     typeforce(types.Buffer256bit, buffer)
 
     d = BigInteger.fromBuffer(buffer)
