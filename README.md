@@ -32,15 +32,29 @@ npm i -S https://github.com/coreyphillips/react-native-bitcoinjs-lib
 ### React Native
 Install the following dependencies:
 ``` bash
-npm i -S bitcoinjs-lib buffer-reverse react-native-randombytes buffer@5
+npm i -S bitcoinjs-lib buffer-reverse react-native-randombytes crypto buffer@5
 npm i -D rn-nodeify
 react-native link react-native-randombytes
 ```
 Add the following to your script in package.json: 
 
 ``` javascript
-"postinstall": "./node_modules/.bin/rn-nodeify --install buffer,stream,assert,events --hack && npm i -S buffer@5"
+"postinstall": "./node_modules/.bin/rn-nodeify --install buffer,stream,assert,events,crypto,vm --hack && npm i -S buffer@5"
 ```
+
+Install remaining dependencies and run postinstall: 
+
+``` bash
+npm i
+```
+
+Add/Uncomment "require('crypto')" in shim.js: 
+
+``` javascript
+require('crypto')
+```
+
+
 
 **Usage**
 ``` javascript

@@ -87,7 +87,7 @@ ECPair.fromWIF = function (string, network) {
 ECPair.makeRandom = function (options) {
   options = options || {}
 
-  var rng = options.rng || randomBytes
+  var rng = options.rng || randomBytes.randomBytes
 
   var d
   do {
