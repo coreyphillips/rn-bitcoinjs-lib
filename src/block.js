@@ -4,6 +4,7 @@ var fastMerkleRoot = require('merkle-lib/fastRoot')
 var typeforce = require('typeforce')
 var types = require('./types')
 var varuint = require('varuint-bitcoin')
+var bufferReverse = require('buffer-reverse')
 
 var Transaction = require('./transaction')
 
@@ -87,7 +88,7 @@ Block.prototype.getHash = function () {
 }
 
 Block.prototype.getId = function () {
-  return this.getHash().reverse().toString('hex')
+  return bufferReverse(new Buffer(this.getHash(), 'hex'))
 }
 
 Block.prototype.getUTCDate = function () {
@@ -168,7 +169,7 @@ Block.prototype.checkMerkleRoot = function () {
 }
 
 Block.prototype.checkProofOfWork = function () {
-  var hash = this.getHash().reverse()
+  var hash = bufferReverse(new Buffer(this.getHash()))
   var target = Block.calculateTarget(this.bits)
 
   return hash.compare(target) <= 0

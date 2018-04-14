@@ -6,6 +6,7 @@ var opcodes = require('bitcoin-ops')
 var typeforce = require('typeforce')
 var types = require('./types')
 var varuint = require('varuint-bitcoin')
+var bufferReverse = require('buffer-reverse')
 
 function varSliceSize (someScript) {
   var length = someScript.length
@@ -408,7 +409,7 @@ Transaction.prototype.getHash = function () {
 
 Transaction.prototype.getId = function () {
   // transaction hash's are displayed in reverse order
-  return this.getHash().reverse().toString('hex')
+  return bufferReverse(new Buffer(this.getHash(), 'hex'))
 }
 
 Transaction.prototype.toBuffer = function (buffer, initialOffset) {
