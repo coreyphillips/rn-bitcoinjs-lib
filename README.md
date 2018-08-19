@@ -66,6 +66,9 @@ const { address } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey });
 console.log(address);
 ```
 
+### If you prefer not to rely on this repo and would like to setup bitcoinjs-lib (4.0.1) in your own RN project, please feel free to follow the how-to below:
+[RN BitcoinJS-Lib (4.0.1) Setup](https://gist.github.com/coreyphillips/f33d86f3d2307e58f0a5686e6cfc8a7e)
+
 ### Node.js
 Use [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib)
 
