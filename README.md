@@ -24,7 +24,7 @@ Estimated to be in use by over 15 million wallet users and is the backbone for a
 
 ## Installation
 ``` bash
-npm i -S https://github.com/coreyphillips/react-native-bitcoinjs-lib
+yarn add https://github.com/coreyphillips/react-native-bitcoinjs-lib
 ```
 
 ## Setup
@@ -32,20 +32,21 @@ npm i -S https://github.com/coreyphillips/react-native-bitcoinjs-lib
 ### React Native
 Install the following dependencies:
 ``` bash
-npm i -S bitcoinjs-lib buffer-reverse react-native-randombytes crypto buffer@5
-npm i -D rn-nodeify
+yarn add buffer-reverse react-native-randombytes crypto buffer@5
+yarn add --dev rn-nodeify
 react-native link react-native-randombytes
 ```
 Add the following to your script in package.json: 
 
 ``` javascript
-"postinstall": "./node_modules/.bin/rn-nodeify --install buffer,stream,assert,events,crypto,vm --hack && npm i -S buffer@5"
+"postinstall": "rn-nodeify --install buffer,stream,assert,events,crypto,vm --hack"
 ```
 
-Install remaining dependencies and run postinstall: 
+Install any remaining dependencies and run postinstall.
+ NOTE: (If you receive an error about "shim.js" not existing just run `yarn install` again): 
 
 ``` bash
-npm i
+yarn install
 ```
 
 Add/Uncomment "require('crypto')" in shim.js: 
@@ -61,7 +62,8 @@ require('crypto')
 import "./shim";
 const bitcoin = require("bitcoinjs-lib");
 const keyPair = bitcoin.ECPair.makeRandom();
-const address = keyPair.getAddress();
+const { address } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey });
+console.log(address);
 ```
 
 ### Node.js

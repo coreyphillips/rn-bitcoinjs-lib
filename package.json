@@ -1,100 +1,11 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "bitcoinjs-lib",
-        "scope": null,
-        "escapedName": "bitcoinjs-lib",
-        "name": "bitcoinjs-lib",
-        "rawSpec": "",
-        "spec": "latest",
-        "type": "tag"
-      },
-      "/Users/coreyphillips/Documents/testing/bitcoinjslibTesting"
-    ]
-  ],
-  "_from": "bitcoinjs-lib@latest",
-  "_id": "bitcoinjs-lib@3.3.2",
-  "_inCache": true,
-  "_location": "/bitcoinjs-lib",
-  "_nodeVersion": "9.2.0",
-  "_npmOperationalInternal": {
-    "host": "s3://npm-registry-packages",
-    "tmp": "tmp/bitcoinjs-lib-3.3.2.tgz_1514030224360_0.2724244496785104"
-  },
-  "_npmUser": {
-    "name": "dcousens",
-    "email": "npm@dcousens.com"
-  },
-  "_npmVersion": "5.6.0",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "bitcoinjs-lib",
-    "scope": null,
-    "escapedName": "bitcoinjs-lib",
-    "name": "bitcoinjs-lib",
-    "rawSpec": "",
-    "spec": "latest",
-    "type": "tag"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/bitcoinjs-lib/-/bitcoinjs-lib-3.3.2.tgz",
-  "_shasum": "780c9c53ecb1222adb463b58bef26386067b609a",
-  "_shrinkwrap": null,
-  "_spec": "bitcoinjs-lib",
-  "_where": "/Users/coreyphillips/Documents/testing/bitcoinjslibTesting",
-  "bugs": {
-    "url": "https://github.com/bitcoinjs/bitcoinjs-lib/issues"
-  },
-  "dependencies": {
-    "bech32": "^1.1.2",
-    "bigi": "^1.4.0",
-    "bip66": "^1.1.0",
-    "bitcoin-ops": "^1.3.0",
-    "bs58check": "^2.0.0",
-    "create-hash": "^1.1.0",
-    "create-hmac": "^1.1.3",
-    "ecurve": "^1.0.0",
-    "merkle-lib": "^2.0.10",
-    "pushdata-bitcoin": "^1.0.1",
-    "randombytes": "^2.0.1",
-    "safe-buffer": "^5.0.1",
-    "typeforce": "^1.11.3",
-    "varuint-bitcoin": "^1.0.4",
-    "wif": "^2.0.1"
-  },
+  "name": "bitcoinjs-lib",
+  "version": "4.0.1",
   "description": "Client-side Bitcoin JavaScript library",
-  "devDependencies": {
-    "async": "^2.0.1",
-    "bip39": "^2.3.0",
-    "bs58": "^4.0.0",
-    "cb-http-client": "^0.2.0",
-    "coinselect": "^3.1.1",
-    "dhttp": "^2.3.5",
-    "minimaldata": "^1.0.2",
-    "mocha": "^3.1.0",
-    "nyc": "^10.2.0",
-    "proxyquire": "^1.4.0",
-    "sinon": "^1.12.2",
-    "standard": "^9.0.2"
-  },
-  "directories": {},
-  "dist": {
-    "integrity": "sha512-l5qqvbaK8wwtANPf6oEffykycg4383XgEYdia1rI7/JpGf1jfRWlOUCvx5TiTZS7kyIvY4j/UhIQ2urLsvGkzw==",
-    "shasum": "780c9c53ecb1222adb463b58bef26386067b609a",
-    "tarball": "https://registry.npmjs.org/bitcoinjs-lib/-/bitcoinjs-lib-3.3.2.tgz"
-  },
+  "main": "./src/index.js",
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=8.0.0"
   },
-  "files": [
-    "src"
-  ],
-  "gitHead": "f4caaf42e7b58332d74c1540f88bcda7e55b82e6",
-  "homepage": "https://github.com/bitcoinjs/bitcoinjs-lib#readme",
   "keywords": [
     "bitcoinjs",
     "bitcoin",
@@ -102,40 +13,61 @@
     "javascript",
     "bitcoinjs"
   ],
-  "license": "MIT",
-  "main": "./src/index.js",
-  "maintainers": [
-    {
-      "name": "dcousens",
-      "email": "npm@dcousens.com"
-    }
-  ],
-  "name": "bitcoinjs-lib",
-  "optionalDependencies": {},
-  "readme": "# BitcoinJS (bitcoinjs-lib)\n[![Build Status](https://travis-ci.org/bitcoinjs/bitcoinjs-lib.png?branch=master)](https://travis-ci.org/bitcoinjs/bitcoinjs-lib)\n[![NPM](https://img.shields.io/npm/v/bitcoinjs-lib.svg)](https://www.npmjs.org/package/bitcoinjs-lib)\n[![tip for next commit](https://tip4commit.com/projects/735.svg)](http://tip4commit.com/projects/735)\n\n[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)\n\nThe pure JavaScript Bitcoin library for node.js and browsers.\nEstimated to be in use by over 15 million wallet users and is the backbone for almost all Bitcoin web wallets in production today.\n\n\n## Features\n- Clean: Pure JavaScript, concise code, easy to read.\n- Tested: Coverage > 90%, third-party integration tests.\n- Careful: Two person approval process for small, focused pull requests.\n- Compatible: Works on Node.js and all modern browsers.\n- Powerful: Support for advanced features, such as multi-sig, HD Wallets.\n- Secure: Strong random number generation, PGP signed releases, trusted developers.\n- Principled: No support for browsers with crap RNG (IE < 11)\n- Standardized: Node community coding style, Browserify, Node's stdlib and Buffers.\n- Fast: Optimized code, uses typed arrays instead of byte arrays for performance.\n- Experiment-friendly: Bitcoin Mainnet and Testnet support.\n- Altcoin-ready: Capable of working with bitcoin-derived cryptocurrencies (such as Dogecoin).\n\n\n## Should I use this in production?\nIf you are thinking of using the master branch of this library in production, **stop**.\nMaster is not stable; it is our development branch, and [only tagged releases may be classified as stable](https://github.com/bitcoinjs/bitcoinjs-lib/tags).\n\n\n## Installation\n``` bash\nnpm install bitcoinjs-lib\n```\n\n## Setup\n### Node.js\n``` javascript\nvar bitcoin = require('bitcoinjs-lib')\n```\n\n### Browser\nIf you're familiar with how to use browserify, ignore this and proceed normally.\nThese steps are advisory only,  and may not be suitable for your application.\n\n[Browserify](https://github.com/substack/node-browserify) is assumed to be installed for these steps.\n\nFor your project, create an `index.js` file\n``` javascript\nlet bitcoin = require('bitcoinjs-lib')\n\n// your code here\nfunction myFunction () {\n\treturn bitcoin.ECPair.makeRandom().toWIF()\n}\n\nmodule.exports = {\n\tmyFunction\n}\n```\n\nNow, to compile for the browser:\n``` bash\nbrowserify index.js --standalone foo > app.js\n```\n\nYou can now put `<script src=\"app.js\" />` in your web page,  using `foo.myFunction` to create a new Bitcoin private key.\n\n**NOTE**: If you uglify the javascript, you must exclude the following variable names from being mangled: `BigInteger`, `ECPair`, `Point`.\nThis is because of the function-name-duck-typing used in [typeforce](https://github.com/dcousens/typeforce).\n\nExample:\n``` bash\nuglifyjs ... --mangle reserved=['BigInteger','ECPair','Point']\n```\n\n**NOTE**: This library tracks Node LTS features,  if you need strict ES5,  use [`--transform babelify`](https://github.com/babel/babelify) in conjunction with your `browserify` step (using an [`es2015`](http://babeljs.io/docs/plugins/preset-es2015/) preset).\n\n**NOTE**: If you expect this library to run on an iOS 10 device, ensure that you are using [buffer@5.0.5](https://github.com/feross/buffer/pull/155) or greater.\n\n\n### Typescript or VSCode users\nType declarations for Typescript are available for version `^3.0.0` of the library.\n``` bash\nnpm install @types/bitcoinjs-lib\n```\n\nYou can now use `bitcoinjs-lib` as a typescript compliant library.\n``` javascript\nimport { HDNode, Transaction } from 'bitcoinjs-lib'\n```\n\nFor VSCode (and other editors), users are advised to install the type declarations, as Intellisense uses that information to help you code (autocompletion, static analysis).\n\nReport any typescript related bugs at [@dlebrecht DefinitelyTyped fork](https://github.com/dlebrecht/DefinitelyTyped),  submit PRs to [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)\n\n\n### Flow\nDefinitions for [Flow typechecker](https://flowtype.org/) are available in flow-typed repository.\n\n[You can either download them directly](https://github.com/flowtype/flow-typed/blob/master/definitions/npm/bitcoinjs-lib_v2.x.x/flow_v0.17.x-/bitcoinjs-lib_v2.x.x.js) from the repo, or with the flow-typed CLI\n\n    # npm install -g flow-typed\n    $ flow-typed install -f 0.27 bitcoinjs-lib@2.2.0 # 0.27 for flow version, 2.2.0 for bitcoinjs-lib version\n\nThe definitions are complete and up to date with version 2.2.0. The definitions are maintained by [@runn1ng](https://github.com/runn1ng).\n\n## Examples\nThe below examples are implemented as integration tests, they should be very easy to understand.\nOtherwise, pull requests are appreciated.\nSome examples interact (via HTTPS) with a 3rd Party Blockchain Provider (3PBP).\n\n- [Generate a random address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/addresses.js#L12)\n- [Generate an address from a SHA256 hash](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/addresses.js#L19)\n- [Import an address via WIF](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/addresses.js#L29)\n- [Generate a 2-of-3 P2SH multisig address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/addresses.js#L36)\n- [Generate a SegWit address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/addresses.js#L50)\n- [Generate a SegWit P2SH address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/addresses.js#L60)\n- [Generate a SegWit 3-of-4 multisig address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/addresses.js#L71)\n- [Generate a SegWit 2-of-2 P2SH multisig address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/addresses.js#L86)\n- [Support the retrieval of transactions for an address (3rd party blockchain)](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/addresses.js#L100)\n- [Generate a Testnet address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/addresses.js#L121)\n- [Generate a Litecoin address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/addresses.js#L131)\n- [Create a 1-to-1 Transaction](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/transactions.js#L14)\n- [Create a 2-to-2 Transaction](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/transactions.js#L28)\n- [Create (and broadcast via 3PBP) a typical Transaction](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/transactions.js#L46)\n- [Create (and broadcast via 3PBP) a Transaction with an OP\\_RETURN output](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/transactions.js#L88)\n- [Create (and broadcast via 3PBP) a Transaction with a 2-of-4 P2SH(multisig) input](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/transactions.js#L115)\n- [Create (and broadcast via 3PBP) a Transaction with a SegWit P2SH(P2WPKH) input](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/transactions.js#L151)\n- [Create (and broadcast via 3PBP) a Transaction with a SegWit 3-of-4 P2SH(P2WSH(multisig)) input](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/transactions.js#L183)\n- [Import a BIP32 testnet xpriv and export to WIF](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/bip32.js#L8)\n- [Export a BIP32 xpriv, then import it](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/bip32.js#L15)\n- [Export a BIP32 xpub](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/bip32.js#L26)\n- [Create a BIP32, bitcoin, account 0, external address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/bip32.js#L35)\n- [Create a BIP44, bitcoin, account 0, external address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/bip32.js#L50)\n- [Create a BIP49, bitcoin testnet, account 0, external address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/bip32.js#L66)\n- [Use BIP39 to generate BIP32 addresses](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/bip32.js#L83)\n- [Create (and broadcast via 3PBP) a Transaction where Alice can redeem the output after the expiry](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/cltv.js#L37)\n- [Create (and broadcast via 3PBP) a Transaction where Alice and Bob can redeem the output at any time](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/cltv.js#L71)\n- [Create (but fail to broadcast via 3PBP) a Transaction where Alice attempts to redeem before the expiry](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/cltv.js#L104)\n- [Recover a private key from duplicate R values](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/crypto.js#L14)\n- [Recover a BIP32 parent private key from the parent public key, and a derived, non-hardened child private key](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/crypto.js#L115)\n- [Generate a single-key stealth address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/stealth.js#L70:)\n- [Generate a single-key stealth address (randomly)](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/stealth.js#L89:)\n- [Recover parent recipient.d, if a derived private key is leaked (and nonce was revealed)](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/stealth.js#L105)\n- [Generate a dual-key stealth address](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/stealth.js#L122)\n- [Generate a dual-key stealth address (randomly)](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/stealth.js#L145)\n\nIf you have a use case that you feel could be listed here, please [ask for it](https://github.com/bitcoinjs/bitcoinjs-lib/issues/new)!\n\n\n## Projects utilizing BitcoinJS\n- [BitAddress](https://www.bitaddress.org)\n- [Blockchain.info](https://blockchain.info/wallet)\n- [Blocktrail](https://www.blocktrail.com/)\n- [Dark Wallet](https://www.darkwallet.is/)\n- [DecentralBank](http://decentralbank.com/)\n- [Dogechain Wallet](https://dogechain.info)\n- [EI8HT Wallet](http://ei8.ht/)\n- [GreenAddress](https://greenaddress.it)\n- [Helperbit](https://helperbit.com)\n- [Melis Wallet](https://melis.io)\n- [Robocoin](https://wallet.robocoin.com)\n- [Skyhook ATM](http://projectskyhook.com)\n\n\n## Contributing\nWe are always accepting of pull requests, but we do adhere to specific standards in regards to coding style, test driven development and commit messages.\n\nPlease make your best effort to adhere to these when contributing to save on trivial corrections.\n\n\n### Running the test suite\n\n``` bash\nnpm test\nnpm run-script coverage\n```\n\n## Complementing Libraries\n- [BIP21](https://github.com/bitcoinjs/bip21) - A BIP21 compatible URL encoding library\n- [BIP38](https://github.com/bitcoinjs/bip38) - Passphrase-protected private keys\n- [BIP39](https://github.com/bitcoinjs/bip39) - Mnemonic generation for deterministic keys\n- [BIP32-Utils](https://github.com/bitcoinjs/bip32-utils) - A set of utilities for working with BIP32\n- [BIP66](https://github.com/bitcoinjs/bip66) - Strict DER signature decoding\n- [BIP68](https://github.com/bitcoinjs/bip68) - Relative lock-time encoding library\n- [BIP69](https://github.com/bitcoinjs/bip69) - Lexicographical Indexing of Transaction Inputs and Outputs\n- [Base58](https://github.com/cryptocoinjs/bs58) - Base58 encoding/decoding\n- [Base58 Check](https://github.com/bitcoinjs/bs58check) - Base58 check encoding/decoding\n- [Bech32](https://github.com/bitcoinjs/bech32) - A BIP173 compliant Bech32 encoding library\n- [coinselect](https://github.com/bitcoinjs/coinselect) - A fee-optimizing, transaction input selection module for bitcoinjs-lib.\n- [merkle-lib](https://github.com/bitcoinjs/merkle-lib) - A performance conscious library for merkle root and tree calculations.\n- [minimaldata](https://github.com/bitcoinjs/minimaldata) - A module to check bitcoin policy: SCRIPT_VERIFY_MINIMALDATA\n\n\n## Alternatives\n- [BCoin](https://github.com/indutny/bcoin)\n- [Bitcore](https://github.com/bitpay/bitcore)\n- [Cryptocoin](https://github.com/cryptocoinjs/cryptocoin)\n\n\n## LICENSE [MIT](LICENSE)\n",
-  "readmeFilename": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bitcoinjs/bitcoinjs-lib.git"
-  },
   "scripts": {
-    "coverage": "nyc --check-coverage --branches 90 --functions 90 mocha",
-    "coverage-html": "nyc report --reporter=html",
     "coverage-report": "nyc report --reporter=lcov",
+    "coverage-html": "nyc report --reporter=html",
+    "coverage": "nyc --check-coverage --branches 90 --functions 90 mocha",
     "integration": "mocha test/integration/",
     "standard": "standard",
     "test": "npm run standard && npm run coverage",
     "unit": "mocha"
   },
-  "version": "3.3.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitcoinjs/bitcoinjs-lib.git"
+  },
+  "files": [
+    "src"
+  ],
+  "dependencies": {
+    "bech32": "^1.1.2",
+    "bip32": "^1.0.0",
+    "bip66": "^1.1.0",
+    "bitcoin-ops": "^1.4.0",
+    "bs58check": "^2.0.0",
+    "create-hash": "^1.1.0",
+    "create-hmac": "^1.1.3",
+    "merkle-lib": "^2.0.10",
+    "pushdata-bitcoin": "^1.0.1",
+    "randombytes": "^2.0.1",
+    "safe-buffer": "^5.1.1",
+    "tiny-secp256k1": "^1.0.0",
+    "typeforce": "^1.11.3",
+    "varuint-bitcoin": "^1.0.4",
+    "wif": "^2.0.1"
+  },
+  "devDependencies": {
+    "bip39": "^2.3.0",
+    "bip65": "^1.0.1",
+    "bip68": "^1.0.3",
+    "bn.js": "^4.11.8",
+    "bs58": "^4.0.0",
+    "dhttp": "^2.5.0",
+    "hoodwink": "^1.0.0",
+    "minimaldata": "^1.0.2",
+    "mocha": "^5.2.0",
+    "nyc": "^11.8.0",
+    "proxyquire": "^2.0.1",
+    "standard": "^11.0.1"
+  },
+  "license": "MIT",
   "react-native": {
     "_stream_transform": "readable-stream/transform",
     "_stream_readable": "readable-stream/readable",
     "_stream_writable": "readable-stream/writable",
     "_stream_duplex": "readable-stream/duplex",
     "_stream_passthrough": "readable-stream/passthrough",
-    "stream": "stream-browserify",
-    "crypto": "react-native-crypto"
+    "stream": "stream-browserify"
   },
   "browser": {
     "_stream_transform": "readable-stream/transform",
@@ -143,7 +75,6 @@
     "_stream_writable": "readable-stream/writable",
     "_stream_duplex": "readable-stream/duplex",
     "_stream_passthrough": "readable-stream/passthrough",
-    "stream": "stream-browserify",
-    "crypto": "react-native-crypto"
+    "stream": "stream-browserify"
   }
 }
