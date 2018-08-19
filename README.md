@@ -49,13 +49,22 @@ Install any remaining dependencies and run postinstall.
 yarn install
 ```
 
-Add/Uncomment "require('crypto')" in shim.js: 
+Add the following to shim.js:
+``` javascript
+if (typeof Buffer.prototype.reverse === 'undefined') {
+  var bufferReverse = require('buffer-reverse');
+
+  Buffer.prototype.reverse = function () {
+    return bufferReverse(this);
+  };
+}
+```
+
+Add/Uncomment "require('crypto')" at the bottom of shim.js: 
 
 ``` javascript
 require('crypto')
 ```
-
-
 
 **Usage**
 ``` javascript

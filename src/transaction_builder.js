@@ -8,7 +8,6 @@ const payments = require('./payments')
 const typeforce = require('typeforce')
 const types = require('./types')
 const classify = require('./classify')
-const bufferReverse = require('buffer-reverse')
 const SCRIPT_TYPES = classify.types
 
 const ECPair = require('./ecpair')
@@ -502,7 +501,7 @@ TransactionBuilder.prototype.addInput = function (txHash, vout, sequence, prevOu
   // is it a hex string?
   if (typeof txHash === 'string') {
     // transaction hashs's are displayed in reverse order, un-reverse it
-	txHash = bufferReverse(new Buffer(txHash, 'hex'))
+	txHash = Buffer.from(txHash, 'hex').reverse()
 
   // is it a Transaction object?
   } else if (txHash instanceof Transaction) {
