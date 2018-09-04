@@ -24,7 +24,7 @@ Estimated to be in use by over 15 million wallet users and is the backbone for a
 
 ## Installation
 ``` bash
-yarn add https://github.com/coreyphillips/react-native-bitcoinjs-lib
+yarn add rn-bitcoinjs-lib
 ```
 
 ## Setup
@@ -69,7 +69,7 @@ require('crypto')
 **Usage**
 ``` javascript
 import "./shim";
-const bitcoin = require("bitcoinjs-lib");
+const bitcoin = require("rn-bitcoinjs-lib");
 const keyPair = bitcoin.ECPair.makeRandom();
 const { address } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey });
 console.log(address);
