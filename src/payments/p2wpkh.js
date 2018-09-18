@@ -21,7 +21,7 @@ function p2wpkh (a, opts) {
     !a.pubkey &&
     !a.witness
   ) throw new TypeError('Not enough data')
-  opts = opts || { validate: true }
+  opts = Object.assign({ validate: true }, opts || {})
 
   typef({
     address: typef.maybe(typef.String),
@@ -93,7 +93,6 @@ function p2wpkh (a, opts) {
       if (network && network.bech32 !== _address().prefix) throw new TypeError('Invalid prefix or Network mismatch')
       if (_address().version !== 0x00) throw new TypeError('Invalid address version')
       if (_address().data.length !== 20) throw new TypeError('Invalid address data')
-      // if (hash && !hash.equals(_address().data)) throw new TypeError('Hash mismatch')
       hash = _address().data
     }
 
