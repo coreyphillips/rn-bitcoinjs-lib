@@ -8,14 +8,10 @@ This is a React Native compatible version of [bitcoinjs-lib](https://github.com/
 
 Released under the terms of the [MIT LICENSE](LICENSE).
 
-### You shouldn't trust or rely on this repo for anything other than testing. To setup bitcoinjs-lib (4.0.2) in your RN project, please follow the how-to below:
-[RN BitcoinJS-Lib (4.0.2) Setup](https://gist.github.com/coreyphillips/928ae27ccea69cd0b494d13ad2b3f27d)
-
 ## Can I trust this code?
 > Don't trust. Verify.
 
 You shouldn't trust or rely on this repo for anything other than testing. To setup bitcoinjs-lib (4.0.2) in your RN project, please follow the how-to below:
-
 [RN BitcoinJS-Lib (4.0.2) Setup](https://gist.github.com/coreyphillips/928ae27ccea69cd0b494d13ad2b3f27d)
 
 
