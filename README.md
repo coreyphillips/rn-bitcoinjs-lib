@@ -4,17 +4,20 @@
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-This is a React Native compatible version of [bitcoinjs-lib,](https://github.com/bitcoinjs/bitcoinjs-lib), a javascript Bitcoin library for node.js and browsers.
+This is a React Native compatible version of [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib), a javascript Bitcoin library for node.js and browsers.
 
 Released under the terms of the [MIT LICENSE](LICENSE).
 
-## Should I use this in production?
-If you are thinking of using the *master* branch of this library in production, **stop**.
-Master is not stable; it is our development branch, and [only tagged releases may be classified as stable](https://github.com/bitcoinjs/bitcoinjs-lib/tags).
-
+### You shouldn't trust or rely on this repo for anything other than testing. To setup bitcoinjs-lib (4.0.2) in your RN project, please follow the how-to below:
+[RN BitcoinJS-Lib (4.0.2) Setup](https://gist.github.com/coreyphillips/928ae27ccea69cd0b494d13ad2b3f27d)
 
 ## Can I trust this code?
 > Don't trust. Verify.
+
+You shouldn't trust or rely on this repo for anything other than testing. To setup bitcoinjs-lib (4.0.2) in your RN project, please follow the how-to below:
+
+[RN BitcoinJS-Lib (4.0.2) Setup](https://gist.github.com/coreyphillips/928ae27ccea69cd0b494d13ad2b3f27d)
+
 
 We recommend every user of this library and the [bitcoinjs](https://github.com/bitcoinjs) ecosystem audit and verify any underlying code for its validity and suitability.
 
@@ -88,9 +91,6 @@ const keyPair = bitcoin.ECPair.makeRandom();
 const { address } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey });
 console.log(address);
 ```
-
-### You shouldn't trust or rely on this repo for anything other than testing. To setup bitcoinjs-lib (4.0.2) in your RN project, please follow the how-to below:
-[RN BitcoinJS-Lib (4.0.2) Setup](https://gist.github.com/coreyphillips/928ae27ccea69cd0b494d13ad2b3f27d)
 
 ### Node.js
 Use [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib)
