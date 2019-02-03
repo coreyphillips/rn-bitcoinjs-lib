@@ -14,6 +14,7 @@ Released under the terms of the [MIT LICENSE](LICENSE).
 You shouldn't trust or rely on this repo for anything other than testing. To setup bitcoinjs-lib (4.0.3) in your RN project, please follow the how-to below:
 [RN BitcoinJS-Lib (4.0.3) Setup](https://gist.github.com/coreyphillips/723a718f3630f965a83007a81afe5926)
 
+If you have any difficulty with the setup instructions below and need a repo for reference, feel free to clone, review and experiment with the pre-built RN repo here: [RNBitcoinJS](https://github.com/coreyphillips/RNBitcoinJS)
 
 We recommend every user of this library and the [bitcoinjs](https://github.com/bitcoinjs) ecosystem audit and verify any underlying code for its validity and suitability.
 
