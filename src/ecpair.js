@@ -1,6 +1,5 @@
-import { randomBytes } from 'react-native-randombytes'
-
 const ecc = require('tiny-secp256k1')
+import { randomBytes } from 'react-native-randombytes'
 const typeforce = require('typeforce')
 const types = require('./types')
 const wif = require('wif')
