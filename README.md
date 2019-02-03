@@ -46,7 +46,7 @@ react-native link react-native-randombytes
 Add the following to your script in package.json: 
 
 ``` javascript
-"postinstall": "rn-nodeify --install buffer,stream,assert,events,crypto,vm --hack"
+"postinstall": "rn-nodeify --install buffer,stream,assert,events,crypto,vm --hack && cd node_modules/bs58 && yarn add base-x@3.0.4 && cd ../../"
 ```
 
 Install any remaining dependencies and run postinstall.
