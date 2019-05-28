@@ -2,17 +2,22 @@
 [![Build Status](https://travis-ci.org/bitcoinjs/bitcoinjs-lib.png?branch=master)](https://travis-ci.org/bitcoinjs/bitcoinjs-lib)
 [![NPM](https://img.shields.io/npm/v/bitcoinjs-lib.svg)](https://www.npmjs.org/package/bitcoinjs-lib)
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-This is a React Native compatible version of [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib), a javascript Bitcoin library for node.js and browsers.
+This is a React Native compatible version of [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib), a javascript Bitcoin library for node.js and browsers.  Written in TypeScript, but committing the JS files to verify.
 
 Released under the terms of the [MIT LICENSE](LICENSE).
+
+## Should I use this in production?
+If you are thinking of using the *master* branch of this library in production, **stop**.
+Master is not stable; it is our development branch, and [only tagged releases may be classified as stable](https://github.com/coreyphillips/rn-bitcoinjs-lib/tags).
+
 
 ## Can I trust this code?
 > Don't trust. Verify.
 
-You shouldn't trust or rely on this repo for anything other than testing. To setup bitcoinjs-lib (4.0.3) in your RN project, please follow the how-to below:
-[RN BitcoinJS-Lib (4.0.3) Setup](https://gist.github.com/coreyphillips/723a718f3630f965a83007a81afe5926)
+You shouldn't trust or rely on this repo for anything other than testing. To setup bitcoinjs-lib (5.0.5) in your RN project, please follow the how-to below:
+[RN BitcoinJS-Lib (5.0.5) Setup](https://gist.github.com/coreyphillips/9719d7e4b1f6042b993f548d2083cee8)
 
 If you have any difficulty with the setup instructions below and need a repo for reference, feel free to clone, review and experiment with the pre-built RN repo here: [RNBitcoinJS](https://github.com/coreyphillips/RNBitcoinJS)
 
@@ -23,7 +28,7 @@ Mistakes and bugs happen, but with your help in resolving and reporting [issues]
 - Easy to audit and verify,
 - Tested, with test coverage >95%,
 - Advanced and feature rich,
-- Standardized, using [standard](https://github.com/standard/standard) and Node `Buffer`'s throughout, and
+- Standardized, using [prettier](https://github.com/prettier/prettier) and Node `Buffer`'s throughout, and
 - Friendly, with a strong and helpful community, ready to answer questions.
 
 ## Documentation
@@ -34,6 +39,12 @@ Presently,  we do not have any formal documentation other than our [examples](ht
 ``` bash
 yarn add rn-bitcoinjs-lib
 ```
+
+Typically we support the [Node Maintenance LTS version](https://github.com/nodejs/Release).
+If in doubt, see the [.travis.yml](.travis.yml) for what versions are used by our continuous integration tests.
+
+**WARNING**: We presently don't provide any tooling to verify that the release on `npm` matches GitHub.  As such, you should verify anything downloaded by `npm` against your own verified copy.
+
 
 ## Setup
 
@@ -123,30 +134,7 @@ Use [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib)
 Use [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib)
 
 ### Typescript or VSCode users
-Type declarations for Typescript [are available](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/0897921174860ec3d5318992d2323b3ae8100a68/types/bitcoinjs-lib) for version `^3.0.0` of the library.
-
-``` bash
-npm install @types/bitcoinjs-lib
-```
-
-For VSCode (and other editors), it is advised to install the type declarations, as Intellisense uses that information to help you code (autocompletion, static analysis).
-
-**WARNING**: These Typescript definitions are not maintained by the maintainers of this repository, and are instead maintained at [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
-Please report any issues or problems there.
-
-
-### Flow
-[Flow-type](https://flowtype.org/) definitions for are available in the [flow-*typed* repository](https://github.com/flowtype/flow-typed/tree/master/definitions/npm/bitcoinjs-lib_v2.x.x) for version `^2.0.0` of the library.
-
-You can [download them directly](https://github.com/flowtype/flow-typed/blob/master/definitions/npm/bitcoinjs-lib_v2.x.x/flow_v0.17.x-/bitcoinjs-lib_v2.x.x.js), or using the flow-typed CLI:
-
-``` bash
-npm install -g flow-typed
-flow-typed install -f 0.27 bitcoinjs-lib@2.2.0
-```
-
-**WARNING**: These flow-typed definitions are not maintained by the maintainers of this repository.
-
+Type declarations for Typescript are included in this library. Normal installation should include all the needed type information.
 
 ## Examples
 The below examples are implemented as integration tests, they should be very easy to understand.
@@ -184,6 +172,11 @@ Some examples interact (via HTTPS) with a 3rd Party Blockchain Provider (3PBP).
 - [Create (and broadcast via 3PBP) a Transaction where Alice can redeem the output after the expiry (in the future)](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/cltv.js)
 - [Create (and broadcast via 3PBP) a Transaction where Alice and Bob can redeem the output at any time](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/cltv.js)
 - [Create (but fail to broadcast via 3PBP) a Transaction where Alice attempts to redeem before the expiry](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/cltv.js)
+- [Create (and broadcast via 3PBP) a Transaction where Alice can redeem the output after the expiry (in the future) (simple CHECKSEQUENCEVERIFY)](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/csv.js)
+- [Create (but fail to broadcast via 3PBP) a Transaction where Alice attempts to redeem before the expiry (simple CHECKSEQUENCEVERIFY)](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/csv.js)
+- [Create (and broadcast via 3PBP) a Transaction where Bob and Charles can send (complex CHECKSEQUENCEVERIFY)](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/csv.js)
+- [Create (and broadcast via 3PBP) a Transaction where Alice (mediator) and Bob can send after 2 blocks (complex CHECKSEQUENCEVERIFY)](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/csv.js)
+- [Create (and broadcast via 3PBP) a Transaction where Alice (mediator) can send after 5 blocks (complex CHECKSEQUENCEVERIFY)](https://github.com/bitcoinjs/bitcoinjs-lib/blob/master/test/integration/csv.js)
 
 If you have a use case that you feel could be listed here, please [ask for it](https://github.com/bitcoinjs/bitcoinjs-lib/issues/new)!
 

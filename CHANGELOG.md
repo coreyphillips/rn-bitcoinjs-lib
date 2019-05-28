@@ -1,3 +1,30 @@
+# 5.0.4
+__added__
+- low R value support for ECPair, bip32, and TransactionBuilder (default off) via `txb.setLowR()` (#1385)
+
+__fixed__
+- Fixed Various TypeScript types that have been pushed out since v5.0.0 (#1388)
+
+# 5.0.0
+__added__
+- TypeScript support (#1319)
+- `Block.prototype.checkTxRoots` will check the merkleRoot and witnessCommit if it exists against the transactions array. (e52abec) (0426c66)
+
+__changed__
+- `Transaction.prototype.getHash` now has `forWitness?: boolean` which when true returns the hash for wtxid (a652d04)
+- `Block.calculateMerkleRoot` now has `forWitness?: boolean` which when true returns the witness commit (a652d04)
+
+__removed__
+- `Block.prototype.checkMerkleRoot` was removed, please use `checkTxRoots` (0426c66)
+
+# 4.0.5
+__fixed__
+- Fixed bug where Angular apps break due to lack of crypto at build time. Reverted #1373 and added (6bead5d).
+
+# 4.0.4
+__fixed__
+- Fixed bug where Electron v4 breaks due to lack of `'rmd160'` alias for ripemd160 hash. (#1373)
+
 # 4.0.3
 __fixed__
 - Fixed `TransactionBuilder` to require that the Transaction has outputs before signing (#1151)
