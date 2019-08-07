@@ -1,6 +1,6 @@
 # RN-BitcoinJS (rn-bitcoinjs-lib)
 
-####Note: Great news! This library is no longer required for bitcoinjs-lib versions 5.1 and up. [Please use this Gist instead to get your RN project up and running.](https://gist.github.com/coreyphillips/4d45160fed016417a5f583f179c2cbdb)
+#### Note: Great news! This library is no longer required for bitcoinjs-lib versions 5.1 and up. [Please use this Gist instead to get your RN project up and running.](https://gist.github.com/coreyphillips/4d45160fed016417a5f583f179c2cbdb)
 
 This is a React Native compatible version of [bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib), a javascript Bitcoin library for node.js and browsers.  Written in TypeScript, but committing the JS files to verify.
 
